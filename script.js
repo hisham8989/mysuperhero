@@ -1,5 +1,4 @@
 var input = document.getElementById('input')
-var image = document.getElementById('image')
 var heroListContainer = document.getElementById('hero-list-container')
 input.addEventListener('keyup', () => {
   // console.log(input.value);
@@ -10,14 +9,11 @@ input.addEventListener('keyup', () => {
       var resJSON = JSON.parse(xhrRequest.response)
       if (resJSON.response === 'success') {
         var results = resJSON.results
-        page.insertAdjacentHTML('beforeend', '')
+        heroListContainer.innerText = '';
         for (let result of results) {
-          let herobox = heroInfo(result)
-          // heroListContainer.insertAdjacentElement("afterbegin", herobox);
-          heroListContainer.prepend(herobox);
+          let herobox = heroInfo(result)          
+          heroListContainer.prepend(herobox)
         }
-        // var imageUrl = resJSON.results[0].image.url
-        // image.setAttribute('src', imageUrl)
       } else {
         let errorMsg = JSON.parse(this.response).error
         heroListContainer.innerHTML = errorMsg
@@ -31,6 +27,7 @@ input.addEventListener('keyup', () => {
       `https://www.superheroapi.com/api.php/1628132770683309/search/${input.value}`,
       true
     )
+
     xhrRequest.send()
   }
 })
@@ -38,8 +35,9 @@ input.addEventListener('keyup', () => {
 function heroInfo(hero) {
   let { id, name, bio, appearance, work, connections, image } = hero
 
+
   let heroBox = document.createElement('div')
-  heroBox.setAttribute('class', 'my-4 card')
+  heroBox.setAttribute('class', 'mb-4 card')
 
   let row = document.createElement('div')
   row.setAttribute('class', 'row')
@@ -50,6 +48,7 @@ function heroInfo(hero) {
   let photo = document.createElement('img')
   photo.setAttribute('style', 'width: 100%; height: 100%;')
   photo.setAttribute('src', `${image.url}`)
+  photo.setAttribute('alt', `${name}`)
 
   let profileBox = document.createElement('div')
   profileBox.setAttribute('class', 'p-1 col-6')
@@ -68,8 +67,8 @@ function heroInfo(hero) {
   based.innerText = `Based : ${work.base}`
 
   let addToFavBtn = document.createElement('button')
-  addToFavBtn.innerText = "Add To Favorite"
-  addToFavBtn.setAttribute('class', 'btn btn-success')
+  addToFavBtn.innerText = 'Add To Favorite'
+  addToFavBtn.setAttribute('class', 'btn btn-info text-light')
 
   /** Profile - box Appending Child */
 
@@ -99,6 +98,25 @@ function heroInfo(hero) {
 
   /** End hero - box */
 
+  addToFavBtn.addEventListener('click',function (e) {
+    e.stopPropagation()
+    let obj = {
+      id:hero.id,
+      name:hero.name,
+      powerstats:hero.powerstats,
+      appearance:hero.appearance,
+      biography:hero.biography,
+      image:hero.image
+    }
+    let json = JSON.stringify(obj)
+    localStorage.setItem(id,json)
+    this.setAttribute('class', 'btn btn-success')
+    this.innerText = "Added To Fav List"
+  })
+
+  heroBox.addEventListener('click',function(e){
+    window.location.href = `./hero.html?heroId=${hero.id}`;
+  })
 
   return heroBox
 }
