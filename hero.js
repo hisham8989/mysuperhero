@@ -18,7 +18,7 @@ xhrRequest.onload = function () {
 }
 
 function heroInfo(hero) {
-  let { id, name, powerstats, biography, appearance, image } = hero
+  let { id, name, powerstats, biography, appearance,work,connections, image } = hero
 
   let heroBox = document.createElement('div')
   heroBox.setAttribute('class', 'card')
@@ -40,6 +40,22 @@ function heroInfo(hero) {
   height.setAttribute('class', 'card-text')
   height.innerText = `Height( cms ): ${appearance.height[1]}`
 
+  let heightFt = document.createElement('p')
+  heightFt.setAttribute('class', 'card-text')
+  heightFt.innerText = `Height : ${appearance.height[0]} feet`
+
+  let weight = document.createElement('p')
+  weight.setAttribute('class', 'card-text')
+  weight.innerText = `Weight : ${appearance.weight[1]}`
+
+  let gender = document.createElement('p')
+  gender.setAttribute('class', 'card-text')
+  gender.innerText = `Gender : ${appearance.gender}`
+
+  let race = document.createElement('p')
+  race.setAttribute('class', 'card-text')
+  race.innerText = `Race : ${appearance.race}`
+
   let strength = document.createElement('p')
   strength.setAttribute('class', 'card-text')
   strength.innerText = `Strength : ${powerstats.strength}`
@@ -48,9 +64,37 @@ function heroInfo(hero) {
   speed.setAttribute('class', 'card-text')
   speed.innerText = `Speed : ${powerstats.speed}`
 
+  let intelligence = document.createElement('p')
+  intelligence.setAttribute('class', 'card-text')
+  intelligence.innerText = `Intelligence : ${powerstats.intelligence}`
+
+  let durability = document.createElement('p')
+  durability.setAttribute('class', 'card-text')
+  durability.innerText = `Durability : ${powerstats.durability}`
+
   let power = document.createElement('p')
   power.setAttribute('class', 'card-text')
   power.innerText = `Power : ${powerstats.power}`
+
+  let occupation = document.createElement('p')
+  occupation.setAttribute('class', 'card-text')
+  occupation.innerText = `Occupation : ${work.occupation}`
+
+  let base = document.createElement('p')
+  base.setAttribute('class', 'card-text')
+  base.innerText = `Place : ${work.base}`
+
+  let relatives = document.createElement('p')
+  relatives.setAttribute('class', 'card-text')
+  relatives.innerText = `Relatives : ${connections.relatives}`
+
+  let publisher = document.createElement('p')
+  publisher.setAttribute('class', 'card-text')
+  publisher.innerText = `Publisher : ${biography.publisher}`
+
+  let alignment = document.createElement('p')
+  alignment.setAttribute('class', 'card-text')
+  alignment.innerText = `Alignment : ${biography.alignment}`
 
   let addToFavBtn = document.createElement('a')
   addToFavBtn.innerHTML = 'Add To Favorite'
@@ -68,9 +112,20 @@ function heroInfo(hero) {
 
   cardBody.appendChild(heroName)
   cardBody.appendChild(height)
+  cardBody.appendChild(heightFt)
+  cardBody.appendChild(weight)
+  cardBody.appendChild(gender)
+  cardBody.appendChild(race)
   cardBody.appendChild(strength)
+  cardBody.appendChild(intelligence)
   cardBody.appendChild(speed)
+  cardBody.appendChild(durability)
   cardBody.appendChild(power)
+  cardBody.appendChild(occupation)
+  cardBody.appendChild(base)
+  cardBody.appendChild(relatives)
+  cardBody.appendChild(publisher)
+  cardBody.appendChild(alignment)
   cardBody.appendChild(addToFavBtn)
   cardBody.appendChild(backBtn)
 
