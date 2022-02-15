@@ -12,7 +12,7 @@ function favHeroInfo(hero) {
 
   let heroBox = document.createElement('div')
   heroBox.setAttribute('class', 'mb-4 card')
-  // heroBox.setAttribute('style', ':hover')
+  heroBox.setAttribute('title', 'Click to know more about the hero')
 
   let row = document.createElement('div')
   row.setAttribute('class', 'row')
@@ -46,7 +46,7 @@ function favHeroInfo(hero) {
 
   let removeToFavBtn = document.createElement('button')
   removeToFavBtn.innerText = 'Remove From Favorite'
-  removeToFavBtn.setAttribute('class', 'btn btn-success')
+  removeToFavBtn.setAttribute('class', 'btn btn-danger')
   removeToFavBtn.setAttribute('style', 'font-size:13px')
 
   /** Profile - box Appending Child */
@@ -87,6 +87,14 @@ function favHeroInfo(hero) {
   /** Click on hero redirect to single hero page */
   heroBox.addEventListener('click', function () {
     window.location.href = `./hero.html?heroId=${id}`
+  })
+
+  heroBox.addEventListener('mouseover',function () {
+    this.setAttribute('class','mb-4 card bg-light')
+  })
+
+  heroBox.addEventListener('mouseout',function () {
+    this.setAttribute('class','mb-4 card')
   })
 
   return heroBox

@@ -38,12 +38,13 @@ function heroInfo(hero) {
 
   let heroBox = document.createElement('div')
   heroBox.setAttribute('class', 'mb-4 card')
+  heroBox.setAttribute('title', 'Click to know more about the hero')
 
   let row = document.createElement('div')
   row.setAttribute('class', 'row')
 
   let imageContainer = document.createElement('div')
-  imageContainer.setAttribute('class', 'container-fluid col-6')
+  imageContainer.setAttribute('class', 'col-6')
 
   let photo = document.createElement('img')
   photo.setAttribute('style', 'width: 100%; height: 100%;')
@@ -52,7 +53,7 @@ function heroInfo(hero) {
 
   let profileBox = document.createElement('div')
   profileBox.setAttribute('class', 'p-1 col-6')
-  profileBox.setAttribute('style', 'font-size: small;')
+  profileBox.setAttribute('style', 'font-size: 12px;')
 
   let heroName = document.createElement('p')
   heroName.innerText = `Name : ${name}`
@@ -67,7 +68,7 @@ function heroInfo(hero) {
   based.innerText = `Based : ${work.base}`
 
   let addToFavBtn = document.createElement('button')
-  addToFavBtn.innerText = 'Add To Favorite'
+  addToFavBtn.innerHTML = 'Add To Fav List'
   addToFavBtn.setAttribute('class', 'btn btn-info text-light')
 
   /** Profile - box Appending Child */
@@ -116,6 +117,15 @@ function heroInfo(hero) {
 
   heroBox.addEventListener('click',function(e){
     window.location.href = `./hero.html?heroId=${hero.id}`;
+  })
+
+  heroBox.addEventListener('mouseover',function () {
+    this.setAttribute('class','mb-4 card bg-light')
+    this.setAttribute('style','cursor:pointer')
+  })
+
+  heroBox.addEventListener('mouseout',function () {
+    this.setAttribute('class','mb-4 card')
   })
 
   return heroBox
