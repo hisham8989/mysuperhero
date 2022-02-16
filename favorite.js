@@ -11,14 +11,14 @@ function favHeroInfo(hero) {
   let { id, name, powerstats, biography, appearance, image } = hero
 
   let heroBox = document.createElement('div')
-  heroBox.setAttribute('class', 'mb-4 card')
+  heroBox.setAttribute('class', 'mb-4 card col-md-8 mx-auto col-lg-6')
   heroBox.setAttribute('title', 'Click to know more about the hero')
 
   let row = document.createElement('div')
   row.setAttribute('class', 'row')
 
   let imageContainer = document.createElement('div')
-  imageContainer.setAttribute('class', 'container-fluid col-6')
+  imageContainer.setAttribute('class', 'col-6 col-md-4 col-lg-3')
 
   let photo = document.createElement('img')
   photo.setAttribute('style', 'width: 100%; height: 100%;')
@@ -26,28 +26,34 @@ function favHeroInfo(hero) {
   photo.setAttribute('alt', `${name}`)
 
   let profileBox = document.createElement('div')
-  profileBox.setAttribute('class', 'p-1 col-6')
-  profileBox.setAttribute('style', 'font-size: small;')
+  profileBox.setAttribute('class', 'p-1 col-6 col-md-8 col-lg-9')
+  profileBox.setAttribute('style', 'font-size: 80%;')
+  
 
   let heroName = document.createElement('p')
   heroName.innerText = `Name : ${name}`
+  // heroName.setAttribute('style', 'font-size: 80%;')
 
   let height = document.createElement('p')
   height.innerText = `Height( cms ): ${appearance.height[1]}`
+  // height.setAttribute('style', 'font-size: 0.9em;')
 
   let strength = document.createElement('p')
   strength.innerText = `Strength : ${powerstats.strength}`
+  // strength.setAttribute('style', 'font-size: 0.9em;')
 
   let speed = document.createElement('p')
   speed.innerText = `Speed : ${powerstats.speed}`
+  // speed.setAttribute('style', 'font-size: 0.9em;')
 
   let power = document.createElement('p')
   power.innerText = `Power : ${powerstats.power}`
+  // power.setAttribute('style', 'font-size: 0.9em;')
 
   let removeToFavBtn = document.createElement('button')
   removeToFavBtn.innerText = 'Remove From Favorite'
   removeToFavBtn.setAttribute('class', 'btn btn-danger')
-  removeToFavBtn.setAttribute('style', 'font-size:13px')
+  removeToFavBtn.setAttribute('style', 'font-size:80%')
 
   /** Profile - box Appending Child */
 
@@ -90,11 +96,12 @@ function favHeroInfo(hero) {
   })
 
   heroBox.addEventListener('mouseover',function () {
-    this.setAttribute('class','mb-4 card bg-light')
+    this.setAttribute('class','bg-light mb-4 card col-md-8 col-lg-6 mx-auto')
+    this.setAttribute('style','cursor:pointer')
   })
 
   heroBox.addEventListener('mouseout',function () {
-    this.setAttribute('class','mb-4 card')
+    this.setAttribute('class','mb-4 card col-md-8 col-lg-6 mx-auto')
   })
 
   return heroBox

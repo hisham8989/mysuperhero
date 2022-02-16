@@ -37,14 +37,14 @@ function heroInfo(hero) {
 
 
   let heroBox = document.createElement('div')
-  heroBox.setAttribute('class', 'mb-4 card')
+  heroBox.setAttribute('class', 'mb-4 card col-md-8 col-lg-6 mx-auto')
   heroBox.setAttribute('title', 'Click to know more about the hero')
 
   let row = document.createElement('div')
   row.setAttribute('class', 'row')
 
   let imageContainer = document.createElement('div')
-  imageContainer.setAttribute('class', 'col-6')
+  imageContainer.setAttribute('class', 'col-6 col-md-4')
 
   let photo = document.createElement('img')
   photo.setAttribute('style', 'width: 100%; height: 100%;')
@@ -52,7 +52,7 @@ function heroInfo(hero) {
   photo.setAttribute('alt', `${name}`)
 
   let profileBox = document.createElement('div')
-  profileBox.setAttribute('class', 'p-1 col-6')
+  profileBox.setAttribute('class', 'p-1 col-6 col-md-8')
   profileBox.setAttribute('style', 'font-size: 12px;')
 
   let heroName = document.createElement('p')
@@ -120,12 +120,12 @@ function heroInfo(hero) {
   })
 
   heroBox.addEventListener('mouseover',function () {
-    this.setAttribute('class','mb-4 card bg-light')
-    this.setAttribute('style','cursor:pointer')
+    this.setAttribute('class','mb-4 card col-md-8 col-lg-6 mx-auto bg-light')
+    this.setAttribute('style','cursor:pointer;')
   })
 
   heroBox.addEventListener('mouseout',function () {
-    this.setAttribute('class','mb-4 card')
+    this.setAttribute('class','mb-4 card col-md-8 col-lg-6 mx-auto')
   })
 
   return heroBox
