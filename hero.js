@@ -23,7 +23,7 @@ function heroInfo(hero) {
   let { id, name, powerstats, biography, appearance,work,connections, image } = hero
 
   let heroBox = document.createElement('div')
-  heroBox.setAttribute('class', 'card col-lg-8 mx-auto col-md-6')
+  heroBox.setAttribute('class', 'card col-lg-8 mx-auto col-md-6 border-0')
 
   let photo = document.createElement('img')
   photo.setAttribute('src', `${image.url}`)
