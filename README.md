@@ -35,9 +35,6 @@ Also User can make specific hero favourite & can see all favourite heroes at one
 - Superhero Page
     - this page shows a lot of information about the superhero like their name, photo, powerstats, bio.
 
-- Alarms list
-    - Display a list of all the alarms set by user
-
 - My favourite superheroes Page
     - Display a list of all the favourite superheroes.
     - This list is persistent (it will have the same number of superheroes before and after closing the browser).
