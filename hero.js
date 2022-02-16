@@ -17,6 +17,8 @@ xhrRequest.onload = function () {
   heroContainer.appendChild(herobox)
 }
 
+
+/** Display Hero card */
 function heroInfo(hero) {
   let { id, name, powerstats, biography, appearance,work,connections, image } = hero
 
@@ -26,10 +28,10 @@ function heroInfo(hero) {
   let photo = document.createElement('img')
   photo.setAttribute('src', `${image.url}`)
   photo.setAttribute('alt', `${name}`)
-  photo.setAttribute('class', 'card-img-top')
+  photo.setAttribute('class', 'card-img-top w-50 mx-auto d-inline-block')
 
   let cardBody = document.createElement('div')
-  cardBody.setAttribute('class', 'card-body')
+  cardBody.setAttribute('class', 'card-body fs-4')
 
   let heroName = document.createElement('p')
   heroName.setAttribute('class', 'card-text')
@@ -98,13 +100,13 @@ function heroInfo(hero) {
   let addToFavBtn = document.createElement('a')
   addToFavBtn.innerHTML = 'Add To Favorite'
   addToFavBtn.setAttribute('class', 'btn btn-info text-light my-2 bg-info')
-  addToFavBtn.setAttribute('style', 'width:100%')
+  addToFavBtn.setAttribute('style', 'width:100%;')
   addToFavBtn.setAttribute('href', '')
 
   let backBtn = document.createElement('a')
   backBtn.innerHTML = 'Search for other super hero'
   backBtn.setAttribute('class', 'btn btn-info text-light bg-info')
-  backBtn.setAttribute('style', 'width:100%')
+  backBtn.setAttribute('style', 'width:100%;')
   backBtn.setAttribute('href', './index.html')
 
   /** Card Body - box Appending Child */

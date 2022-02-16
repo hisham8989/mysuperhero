@@ -1,5 +1,6 @@
 var heroListContainer = document.getElementById('favorite-hero-list-container')
 
+/** Loop over all fav heroes */
 for (var i = 0; i < localStorage.length; i++) {
   let key = localStorage.key(i)
   let heroObj = localStorage.getItem(key)
@@ -7,6 +8,8 @@ for (var i = 0; i < localStorage.length; i++) {
   heroListContainer.prepend(herobox)
 }
 
+
+/** Function returns hero Box that can use to append anywhere */
 function favHeroInfo(hero) {
   let { id, name, powerstats, biography, appearance, image } = hero
 
@@ -84,10 +87,11 @@ function favHeroInfo(hero) {
 
   /** End hero - box */
 
+  /** Remove hero from favourite list */
   removeToFavBtn.addEventListener('click', function (e) {
     e.stopPropagation()
     localStorage.removeItem(id)
-    this.parentNode.parentNode.remove()
+    this.parentNode.parentNode.parentElement.remove()
   })
 
   /** Click on hero redirect to single hero page */
@@ -95,6 +99,8 @@ function favHeroInfo(hero) {
     window.location.href = `./hero.html?heroId=${id}`
   })
 
+
+  /** Give Hover Effect on hero box */
   heroBox.addEventListener('mouseover',function () {
     this.setAttribute('class','bg-light mb-4 card col-md-8 col-lg-6 mx-auto')
     this.setAttribute('style','cursor:pointer')
@@ -103,6 +109,6 @@ function favHeroInfo(hero) {
   heroBox.addEventListener('mouseout',function () {
     this.setAttribute('class','mb-4 card col-md-8 col-lg-6 mx-auto')
   })
-
+/** End of hero Effect */
   return heroBox
 }
