@@ -24,7 +24,7 @@ Also User can make specific hero favourite & can see all favourite heroes at one
 
     More Information About The Hero 
 ![App Screenshot](./screenshots/single-hero.png)
-## Pages & Features
+## Pages & Features 
 
 - Home Page
     - Search any superhero by just typing initials of the superhero and display the search results on the homepage itself
@@ -50,4 +50,7 @@ Also User can make specific hero favourite & can see all favourite heroes at one
 ## Author
 
 - [@hishamkhan](https://github.com/hisham8989)
+
+## Hosted Link
+- https://hisham8989.github.io/mysuperhero/
 
